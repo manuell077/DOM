@@ -17,19 +17,55 @@
         <div class="container">
           <div class="card">
             <h2 class="center">Ingrese su datos de usuario</h2>
-            <form action="#">
-              <input type="text" name="nombre" placeholder="Nombre">
-              <input type="text" name="Apellido" placeholder="Apellido">
-              <input type="tel" name="telefono"  placeholder="Telefono">
-              <input type="number" name="Documento" placeholder="Documento">
-              <input type="text"name="Usuario"  placeholder="Usuario">
-              <input type="password" name="Contrasena" placeholder="Contraseña">
-              <button type="submit"name="Validar" id="btn_validar">Validar</button>
+            <form action="#" novalidate>
+              <div>
+                <input type="text" name="nombre" placeholder="Nombre" required>
+
+              </div><div>
+
+                <input type="text" name="Apellido" placeholder="Apellido" required>
+              </div>
+
+              <div>
+
+                <input type="tel" name="telefono"  placeholder="Telefono" required>
+              </div>
+              <div>
+
+                <input type="number" name="Documento" placeholder="Documento" >
+              </div>
+              <div>
+
+                <input type="text"name="Usuario"  placeholder="Usuario" >
+              </div>
+              <div>
+
+                <input type="password" name="Contrasena" placeholder="Contraseña" >
+              </div>
+
+              <div>
+                <selec name="ciudad" id="ciudad"  >
+                    <option>Seleccion</option>
+                    <option value="1">Bucaramanga</option>
+                    <option value="2">Floridablanca</option>
+                    <option value="3">Giron</option>
+                </selec>
+              </div>
+
+              <div>
+                <input type="checkbox" name="politica" id="politica"  >
+                <label for="politica">Politica</label>
+              </div>
+
+              <div>
+                <button type="submit"name="Validar" id="btn_validar">Validar</button>
+              </div>
+
             </form>
           </div>
         </div>
       </section>
     </main>
-    <script src="app.js"></script>
+    <script src="app.js" type="module"></script>
 </body>
 </html>
