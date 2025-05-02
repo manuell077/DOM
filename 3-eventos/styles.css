@@ -213,3 +213,33 @@ span{
   color: white;
   font-size: 0.8rem;
 }
+.form__radios{
+  margin: 20px;
+  display: flex;
+  justify-content: left;
+  align-items:end;
+}
+
+.form__check{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    
+}
+
+.checkbox_abuelo{
+   margin: 0 auto;
+   padding: 60px;
+}
+
+
+
+.checkbox_hijo{
+  display: flex;
+  width: 20px;
+  align-items: center;
+  
+  justify-content: center;
+}

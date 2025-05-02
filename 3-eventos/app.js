@@ -11,7 +11,8 @@ const usuario = document.querySelector('[name=Usuario]')
 const contrasena = document.querySelector('[name=Contrasena]')
 const checkbox = document.querySelector('#politica')
 const boton = document.querySelector('#btn_validar')
- 
+const ciudad = document.querySelector('[name=ciudad]')
+const radios = document.querySelector('[name=genero]:checked')
 //Expresion regular 
 const texto = /^[a-zA-Z]+$/;
 const numerico = /^[0-9]+$/
@@ -36,6 +37,11 @@ const hbilDeshabilBoton=()=>{
 }
 
 
+// const invail = () =>{
+//     let data = comprobar()
+// }
+
+
 
 
 nombre.addEventListener("keypress",limitar)
@@ -50,12 +56,16 @@ contrasena.addEventListener('keydown',validarCaracteres)
 
 
 
+
 nombre.addEventListener('blur',outFocus)
 apellido.addEventListener('blur',outFocus)
 telefono.addEventListener('blur',outFocus)
 documento.addEventListener('blur',outFocus)
 usuario.addEventListener('blur',outFocus)
 contrasena.addEventListener('blur',outFocus)
+checkbox.addEventListener('blur',outFocus)
+ciudad.addEventListener('blur',outFocus)
+
 
 addEventListener('DOMContentLoaded',hbilDeshabilBoton)
 

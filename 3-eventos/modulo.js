@@ -8,11 +8,16 @@ export const comprobar = (e) =>{
     const campos = [...e.target].filter((elemento)=>{
           return elemento.hasAttribute('required')
     })
+
+
+
      
     campos.forEach((campo) => {
         let nameCampo = campo.getAttribute("name");
         switch (campo.tagName) {
+
           case "INPUT":
+            
             if (!campo.value) {
               if (campo.nextElementSibling) campo.nextElementSibling.remove();
               campo.classList.add("form__input");
@@ -20,7 +25,10 @@ export const comprobar = (e) =>{
               mensaje.classList.add("form__mensaje");
               mensaje.textContent =  `Debe ingresar su ${nameCampo}`;
               campo.insertAdjacentElement("afterend", mensaje);
+
             }
+
+            
             break;
           case "SELECT":
             if (!campo.selectedIndex) {
@@ -40,11 +48,54 @@ export const comprobar = (e) =>{
         if((campo.tagName == "INPUT" && campo.value) || (campo.tagName == "SELECT" && campo.selectedIndex != 0)){
           persona[nameCampo] = campo.value;
         }
+
+
       })
+
+      const radios = [...campos].filter((elemento) =>{
+        return elemento.type == "radio";
+  
+      })
+  
+      const radiosSeleccionado = radios.find((radio) => radio.checked) || []
+  
+      console.log(radiosSeleccionado)
+  
+      if(radiosSeleccionado.length === 0){
+        
+        persona[radios[0].name] = " "
+            
+      }else{
+        persona[radiosSeleccionado.name] = radiosSeleccionado.value
+      }
+
+      const checkbox = [...campos].filter((elemento)=>elemento.type == "checkbox")
+      
+      const checkboxSeleccionado  = checkbox.filter((chek)=>chek.checked) 
+
+      if(checkboxSeleccionado.length<3){
+
+        persona[checkbox[0].name] = " "
+      }else{
+        
+        persona[checkbox[0].name] = [...checkboxSeleccionado].map((ele)=>ele.value);
+      }
+      // console.log(persona);
+      
+
     
       if(Object.keys(persona).length > 0) console.log(persona);
           
     }
+   
+   
+
+    
+
+
+
+
+
 
 export const outFocus = (event) => {
         if (event.target.value) {

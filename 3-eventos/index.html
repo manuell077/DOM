@@ -32,15 +32,15 @@
               </div>
               <div>
 
-                <input type="number" name="Documento" placeholder="Documento" >
+                <input type="number" name="Documento" placeholder="Documento" required>
               </div>
               <div>
 
-                <input type="text"name="Usuario"  placeholder="Usuario" >
+                <input type="text"name="Usuario"  placeholder="Usuario" required >
               </div>
               <div>
 
-                <input type="password" name="Contrasena" placeholder="Contraseña" >
+                <input type="password" name="Contrasena" placeholder="Contraseña" required>
               </div>
 
               <div class="form__control">
@@ -52,15 +52,66 @@
                 </select>
               </div>
 
-              <div>
-                <input type="checkbox" name="politica" id="politica"  >
-                <label for="politica">Politica</label>
+              <div class="form__radios">
+                <label for="hombre">Hombre</label>
+                <input type="radio" name="genero" id="hombre" value="hombre" required>
+                <label for="mujer">Mujer</label>
+                <input type="radio" name="genero" id="mujer" value="mujer" required>
+ 
+
               </div>
+
+              
+                <div>
+                  <label for="css">CSS</label> 
+                  <input type="checkbox" name="habilidades[]" id="css" value="1" required>
+                </div>
+                
+              
+                <div>
+                  <label   for="js">JS</label> 
+                  <input type="checkbox" name="habilidades[]" id="js" value="2" required>
+                </div>
+                
+              
+
+              
+                <div>
+                  <label for="html">HTML</label> 
+                  <input type="checkbox" name="habilidades[]" id="html" value="3" required>
+                </div>
+                
+            
+
+              <div>
+                  <label for="java">JAVA</label> 
+                  <input type="checkbox" name="habilidades[]" id="java" value="4" required>
+                </div>
+                
+              
+              
+              <div>
+                  <label for="cSharp">C#</label> 
+                  <input type="checkbox" name="habilidades[]" id="cSharp" value="5" required>
+                </div>
+
+
+
+            
+
+              <div>
+                <label for="politica">Politica</label>
+                <input type="checkbox" name="politica" id="politica"  >
+              </div>
+              
+                
+
+
 
               <div>
                 <button type="submit"name="Validar" id="btn_validar">Validar</button>
               </div>
-
+             
             </form>
           </div>
         </div>
