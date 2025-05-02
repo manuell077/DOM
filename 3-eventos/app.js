@@ -1,4 +1,4 @@
-import { comprobar } from "./modulo.js"
+import { comprobar , outFocus, limitar, validarLetras, validarNumeros, validarCaracteres} from "./modulo.js"
 
  
 
@@ -24,106 +24,8 @@ const tamano = /^[a-zA-Z0-9_*.,]{2,8}$/
 
 
 
-// const validar = (event) =>{
-//      event.preventDefault();
-    
-
-    
-
-    
-
-//    if(nombre.value == "" || texto.test(nombre.value) == false ){
-//         if(nombre.nextElementSibling){
-//            nombre.nextElementSibling.remove()
-//          }
-//        nombre.classList.add('borde_rojo')  
-//        let span = document.createElement('span');
-//        span.textContent = "Error: este campo debe estar lleno"   
-//        nombre.insertAdjacentElement('afterend',span)
-//        nombre.focus();
-
-       
-       
-       
-//     } if(apellido.value == "" || texto.test(apellido.value) == false){
-//         if(apellido.nextElementSibling){
-//             apellido.nextElementSibling.remove()
-//          }
-        
-//         apellido.classList.add('borde_rojo') 
-//         let span = document.createElement('span');
-//         span.textContent = "Error: este campo debe estar lleno"   
-//         apellido.insertAdjacentElement('afterend',span)
-//         apellido.focus();
-        
-         
-//     } if(telefono.value == "" || numerico.test(telefono.value) == false){
-//         if(telefono.nextElementSibling){
-//             telefono.nextElementSibling.remove()
-//          }
-//         telefono.classList.add('borde_rojo')
-//         let span = document.createElement('span');
-//         span.textContent = "Error: este campo debe estar lleno"   
-//         telefono.insertAdjacentElement('afterend',span)
-//         telefono.focus();
-        
-         
-        
-//     } if(documento.value == ""){
-//         if(documento.nextElementSibling){
-//             documento.nextElementSibling.remove()
-//          }
-//         documento.classList.add('borde_rojo')
-        
-//         let span = document.createElement('span');
-//         span.textContent = "Error: este campo debe estar lleno"   
-//         documento.insertAdjacentElement('afterend',span)
-//         documento.focus();
-        
-         
-        
-//     } if(usuario.value == ""){
-//         if(usuario.nextElementSibling){
-//             usuario.nextElementSibling.remove()
-//          }
-//         usuario.classList.add('borde_rojo')
-//         let span = document.createElement('span');
-//         span.textContent = "Error: este campo debe estar lleno"   
-//         usuario.insertAdjacentElement('afterend',span)
-//         usuario.focus();
-        
-         
-        
-//     } if(contrasena.value == "" || tamano.test(contrasena.value) == false){
-//         if(contrasena.nextElementSibling){
-//             contrasena.nextElementSibling.remove()
-//          }
-//         contrasena.classList.add('borde_rojo')
-//         let span = document.createElement('span');
-//         span.textContent = "Error: este campo debe estar lleno"   
-//         contrasena.insertAdjacentElement('afterend',span)
-//         contrasena.focus();
-        
-         
-       
-//     }
-     
-    
-    
 
 
-// }
-
-const limpiar = (event) =>{
-      
-    if(event.target.value !== ""){
-       event.target.classList.remove("borde_rojo");
-       if(event.target.nextElementSibling){
-        event.target.nextElementSibling.remove()
-       }
-    }
-
-}
 
 const hbilDeshabilBoton=()=>{
     if(checkbox.checked){
@@ -135,12 +37,25 @@ const hbilDeshabilBoton=()=>{
 
 
 
-nombre.addEventListener('blur',limpiar)
-apellido.addEventListener('blur',limpiar)
-telefono.addEventListener('blur',limpiar)
-documento.addEventListener('blur',limpiar)
-usuario.addEventListener('blur',limpiar)
-contrasena.addEventListener('blur',limpiar)
+
+nombre.addEventListener("keypress",limitar)
+
+nombre.addEventListener('keydown',validarLetras)
+apellido.addEventListener('keydown',validarLetras)
+telefono.addEventListener('keydown',validarNumeros)
+documento.addEventListener('keydown',validarNumeros)
+usuario.addEventListener('keydown',validarCaracteres)
+contrasena.addEventListener('keydown',validarCaracteres)
+
+
+
+
+nombre.addEventListener('blur',outFocus)
+apellido.addEventListener('blur',outFocus)
+telefono.addEventListener('blur',outFocus)
+documento.addEventListener('blur',outFocus)
+usuario.addEventListener('blur',outFocus)
+contrasena.addEventListener('blur',outFocus)
 
 addEventListener('DOMContentLoaded',hbilDeshabilBoton)
 
@@ -149,5 +64,3 @@ checkbox.addEventListener('change',hbilDeshabilBoton)
 
 btn.addEventListener('submit',comprobar)
 
-
-btn.addEventListener("submit", comprobar);
